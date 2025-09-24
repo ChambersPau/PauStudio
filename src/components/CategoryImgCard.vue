@@ -25,6 +25,7 @@ function getImagePath(title) {
 
 img {
     width: 100%;
+    display: block;
 }
 
 .card-item-image-name-wrapper {

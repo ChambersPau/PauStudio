@@ -1,15 +1,27 @@
 <script setup>
 import ContactInfo from '../components/ContactInfo.vue'
 import IntroCard from '../components/IntroCard.vue'
-import { ref,onMounted } from 'vue'
-
+import { ref, onMounted } from 'vue'
 </script>
 
 <template>
-    <main class="container mt-5">
-        <IntroCard :head="'Pau Studio - 泡創影音'" :title="'聯繫資訊'" />
+    <main class="container-fluid mt-5">
+        <IntroCard :title="'聯繫資訊'" />
+        <div class="banner row p-0 my-4">
+            <img src="../assets/categoryBanner/Animation.jpg">
+        </div>
         <section class="row">
-            <ContactInfo class="col-11 offset-1" />
+            <ContactInfo class="col-12" />
         </section>
     </main>
 </template>
+
+<style scoped>
+.banner{
+    max-width: 1440px;
+}
+.banner img {
+    display: block;
+    width: 100%;
+}
+</style>

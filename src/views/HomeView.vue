@@ -3,16 +3,16 @@ import BrandSlider from '@/components/BrandSlider.vue';
 import CategoryImgCard from '../components/CategoryImgCard.vue'
 import ContactInfo from '../components/ContactInfo.vue'
 import IntroCard from '../components/IntroCard.vue'
+import FooterPart from '../components/Footer.vue'
+import ToTop from '../components/ToTop.vue'
 
-import { TopProducts, Categories, LogoSlider_First, LogoSlider_Second } from '../assets/globalData'
+import { LogoSlider_First, LogoSlider_Second } from '../assets/globalData'
 import { useVideoStore } from '../stores/video'
-import { routeLocationKey, RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router'
 import { ref, onMounted } from 'vue'
 
 const videoStore = useVideoStore()
 const topProds = videoStore.TopProducts
-// const topProds = ref([...TopProducts]);
-// const categories = ref([...Categories]);
 const isShowTopProds = ref(true);
 const isShowLeftBtn = ref(false);
 const isShowRightBtn = ref(true);
@@ -45,6 +45,13 @@ function updateButtons() {
 
     const trackerRect = el.getBoundingClientRect();
     const lastCard = el.lastElementChild;
+
+    if (!lastCard) {
+        isShowLeftBtn.value = false;
+        isShowRightBtn.value = true;
+        return;
+    }
+
     const lastCardRect = lastCard?.getBoundingClientRect();
 
     const tolerance = 5;
@@ -54,7 +61,6 @@ function updateButtons() {
 }
 
 function getLogoImagePath(name) {
-    // const baseUrl = import.meta.url;
     return new URL(`../assets/logoImg/${name}`, import.meta.url).href;
 }
 
@@ -63,7 +69,6 @@ onMounted(() => {
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
-
 });
 
 </script>
@@ -71,7 +76,7 @@ onMounted(() => {
 <template>
     <main class="container-fluid p-0 video-section-wrapper">
         <section class="video-section">
-            <video autoplay muted loop playsinline>
+            <video autoplay muted playsinline>
                 <source src="../assets/PAU_Studio_OP.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -84,28 +89,41 @@ onMounted(() => {
                 “Edit Text” or double click me to add your own content and make changes to the font</p>
             <button class="mt-3 btn btn-secondary d-none d-lg-block">Learn More > </button>
         </section> -->
-        <section class="cards-section d-flex flex-column justify-content-center gap-2 my-5 fade-in-effect "
+
+        <section class="about-section my-5 fade-in-effect">
+            <div class="d-flex justify-content-center align-items-center section-title mb-3">
+                <h3 class="fs-4 title-left-border-draw">關於我們</h3>
+            </div>
+            <div
+                class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2">
+                <p>PAU Studio 泡創影音製作 SINCE 2007</p>
+                <p>只要是您能想到的影音類型，都能透過我們的專業團隊，提供您高品質的<span class="fw-bold">客製化影音服務</span>、<span
+                        class="fw-bold">各類影音統籌</span>、<span class="fw-bold">多媒體專業團隊</span></p>
+            </div>
+        </section>
+
+        <section class="cards-section d-flex flex-column justify-content-center gap-0 my-5 fade-in-effect "
             id="cards-section">
-            <div class="cards-category d-flex justify-content-center align-items-center gap-2">
-                <h3 @click="ShowTopProds" :class="{ 'fs-4': true, 'active': isShowTopProds }" >精選作品</h3>  
+            <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-2">
+                <h3 @click="ShowTopProds" class="fs-4 active">精選作品</h3>
                 <!-- id="title" -->
                 <span class='fs-4'>|</span>
                 <RouterLink to="/category">
-                    <h3 :class="{ 'fs-4': true, 'active': !isShowTopProds }">作品分類</h3>
+                    <h3 class="fs-4">分類作品</h3>
                 </RouterLink>
             </div>
             <div class="cards-wrapper">
                 <button @click="ClickLeftBtn" v-show="isShowLeftBtn" class="carousel-btn left">&#10094;</button>
                 <div v-if="isShowTopProds" ref="tracker" class="cards-tracker">
-                    <div v-for="(topProd,index) in topProds" :key="topProd.videoId" class="card-item">
+                    <div v-for="(topProd, index) in topProds" :key="topProd.videoId" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-                            <img :class="['card-image', 
-                            {'custom-position-right': topProd.position === 'right',
-                             'custom-position-left': topProd.position === 'left'
-                            }
-                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`"
-                                alt="Image">
+                            <img :class="['card-image',
+                                {
+                                    'custom-position-right': topProd.position === 'right',
+                                    'custom-position-left': topProd.position === 'left'
+                                }
+                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
                         </RouterLink>
                     </div>
                 </div>
@@ -121,22 +139,21 @@ onMounted(() => {
             </div>
         </section>
         <section class="brands-section my-5 fade-in-effect">
-            <div class="d-flex justify-content-center align-items-center section-title">
-                <h3 class="fs-4">合作品牌</h3>
+            <div class="d-flex justify-content-center align-items-center section-title mb-3">
+                <h3 class="fs-4 title-left-border-draw">合作品牌</h3>
             </div>
             <BrandSlider :dir="'right'" :imgSrcs="imgSrcsFirst" />
             <BrandSlider :dir="'left'" :imgSrcs="imgSrcsSecond" />
         </section>
 
         <section class="contact-section my-5">
-            <div class="d-flex flex-column justify-content-center align-items-start align-items-sm-center ">
-                <div class="d-flex justify-content-center align-items-center section-title w-100">
-                    <h3 class="fs-4">聯繫資訊</h3>
-                </div>
-                <ContactInfo />
+            <div class="d-flex justify-content-center align-items-center section-title mb-3">
+                <h3 class="fs-4 title-left-border-draw">聯繫資訊</h3>
             </div>
+            <ContactInfo />
         </section>
-
+        <ToTop />
+        <FooterPart />
     </main>
 </template>
 
@@ -159,6 +176,7 @@ onMounted(() => {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
 }
 
 .video-section::after {
@@ -182,32 +200,31 @@ span {
 
 .cards-category .active {
     color: var(--sub-color);
-    font-weight: bold;
+
+}
+
+.cards-category h3 {
+    font-weight: 700;
 }
 
 .cards-category h3:hover {
     cursor: pointer;
     color: var(--sub-color);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .cards-wrapper {
     position: relative;
-    /* overflow: hidden; */
 }
 
 .card-item {
-    padding: 1rem;
+    padding: 0.5rem;
     flex: 0 0 auto;
-    /* 不縮放、不撐滿，保持原始寬度 */
     max-width: 400px;
-    /* 或你想要的固定寬度 */
     scroll-snap-align: start;
-    /* 搭配 scroll-snap 對齊 */
     transition: all 0.5s ease-in-out;
     position: relative;
     aspect-ratio: 4 / 5;
-    /* 設定容器為 4:5 比例 */
     overflow: hidden;
 }
 
@@ -222,17 +239,15 @@ span {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* 裁切圖片以填滿容器 */
     object-position: center;
-    /* 可調整裁切位置 */
 }
 
 
-.custom-position-right{
+.custom-position-right {
     object-position: right !important;
 }
 
-.custom-position-left{
+.custom-position-left {
     object-position: left !important;
 }
 
@@ -250,7 +265,6 @@ span {
     overflow-y: hidden;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    /* 隱藏滾動條 */
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;
@@ -295,10 +309,14 @@ span {
 
 /* Section Brand */
 .section-title {
-    padding: 1rem;
     font-weight: 700;
-    margin-bottom: 0.5rem
 }
 
 /* Section Brand */
+
+
+.title-left-border-draw {
+    padding: 0rem 0 0rem 0.5rem;
+    border-left: 4px solid var(--sub-color);
+}
 </style>

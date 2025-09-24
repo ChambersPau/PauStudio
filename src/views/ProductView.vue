@@ -21,27 +21,6 @@ const videoTitle = ref('');
 const videoDesc = ref('');
 const videoPubTime = ref('');
 
-async function getYoutubeData(videoId) {
-    try {
-        const apiRootUrl = 'https://project-vercel-gules-kappa.vercel.app'
-        const payload = { "videoId": videoId }
-        const response = await axios.post(`${apiRootUrl}/api/video`, payload)
-        if (response.status == 200) {
-            videoTitle.value = response.data.title ?? '';
-            videoDesc.value = response.data.description ?? '';
-            videoPubTime.value = response.data.publishedAt ?? '';
-            return true;
-        } else {
-            console.error('error:', '')
-            return false;
-        }
-    } catch (error) {
-        console.error('error:', error)
-        return false;
-    }
-}
-
-
 onMounted(async () => {
     videoId.value = route.query.videoId;
     category.value = route.query.category;
@@ -52,57 +31,56 @@ onMounted(async () => {
         router.push('/');
     }
 
-    categoryName.value = checkCategory.nameEn + ' ' + checkCategory.nameCh;
+    categoryName.value = checkCategory.nameCh;
 
     const checkVideo = checkCategory.products.find(item => item.videoId === videoId.value);
-    if(!checkVideo){
+    if (!checkVideo) {
         router.push('/');
-    }else{
+    } else {
         videoTitle.value = checkVideo.title ?? '';
         videoDesc.value = checkVideo.desc ?? '';
     }
 
-    // let result = await getYoutubeData(videoId.value);
-    // if(result==false){
-    //     router.push('/');
-    // }
 });
 </script>
 
 <template>
     <main class="container-fluid mt-5">
         <section class="back-section row">
-            <div class="offset-1 col-11 justify-content-start align-items-center gap-1 p-0">
-                <RouterLink to="/">< Back to Home</RouterLink>
-                <span> / </span>
-                <RouterLink :to="{ path: '/category', query: { type: category } }">{{ categoryName }}</RouterLink>
+            <div class="offset-0 offset-sm-1 col-11 d-flex justify-content-start align-items-center gap-2">
+                <RouterLink to="/">
+                    < Home</RouterLink>
+                        <span>/</span>
+                        <RouterLink :to="{ path: '/category', query: { type: category } }">{{ categoryName }}
+                        </RouterLink>
             </div>
         </section>
         <section
-            class="offset-1 iframe-section d-flex justify-content-start align-items-start flex-sm-row flex-column my-4 gap-3">
-            <div class="p-0 col-10 col-sm-6">
+            class="offset-0 offset-sm-1 iframe-section d-flex justify-content-start align-items-start align-items-sm-center flex-sm-row flex-column my-3 my-sm-4 gap-3">
+            <div class="p-0 col-12 col-sm-6">
                 <!-- <h2 class="fs-3 fw-bold" id="title">{{videoTitle}}</h2> -->
-                <div class="iframe-wrapper mt-2 ratio ratio-16x9">
+                <div class="iframe-wrapper ratio ratio-16x9">
                     <!-- width="560" height="315" -->
-                    <iframe :src="`https://www.youtube.com/embed/${videoId}`" title="YouTube video player" frameborder="0"
+                    <iframe :src="`https://www.youtube.com/embed/${videoId}`" title="YouTube video player"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="info-text-wrapper col-10 col-sm-4 fade-in-effect">
-                <h3 class="fs-5 fw-bold" id="title">{{videoTitle}}</h3>
-                <p class="fs-6 mt-3 line-breaker">{{ videoDesc }}</p>
+                <h3 class="font-title-size-color fw-bold" id="title">{{ videoTitle }}</h3>
+                <p class="font-desc-size-color mt-3 line-breaker line-height">{{ videoDesc }}</p>
             </div>
         </section>
 
-        <section class="contact-section my-5">
+        <!-- <section class="contact-section my-5">
             <div class="d-flex flex-column justify-content-center align-items-start align-items-sm-center">
                 <div class="d-flex justify-content-center align-items-center section-title w-100">
                     <h3 class="fs-4">聯繫資訊</h3>
                 </div>
                 <ContactInfo />
             </div>
-        </section>
+        </section> -->
     </main>
 </template>
 
@@ -146,7 +124,31 @@ onMounted(async () => {
 }
 
 
-.line-breaker{
+.font-title-size-color{
+    color: var(--sub-word-color);
+    color: 1.25rem;
+}
+
+.font-desc-size-color {
+    color: var(--sub-word-color);
+    color: 1rem;
+}
+
+/* 手機尺寸（小於 576px） */
+@media (max-width: 575.98px) {
+    .font-title-size-color{
+        font-size: 1rem;
+    }
+    .font-desc-size-color {
+        font-size: 0.5rem;
+    }
+}
+
+.line-breaker {
     white-space: pre-line;
+}
+
+.line-height {
+    line-height: 150%;
 }
 </style>

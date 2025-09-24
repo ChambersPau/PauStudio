@@ -1,7 +1,7 @@
 <script setup>
 import { ref, defineProps } from 'vue'
 const props = defineProps({
-    head: { type: String, required: true },
+    head: { type: String, required: false },
     title: { type: String, required: true },
     content: { type: String, required: false },
     btn: { type: String, required: false },
@@ -11,9 +11,9 @@ const props = defineProps({
 <template>
     <section class="row my-4">
         <div
-            class="contact-infor col-10 col-sm-6 offset-1 d-flex flex-column justify-content-center align-items-start ps-5">
-            <span class="fs-6">{{ props.head }}</span>
-            <h2 class="fs-1 fw-bold mt-1">{{ props.title }}</h2>
+            class="contact-infor col-11 col-sm-6 offset-1 d-flex flex-column justify-content-center align-items-start ps-5">
+            <span v-if="props.head" class="fs-6">{{ props.head }}</span>
+            <h2 class="fs-1 fw-bold">{{ props.title }}</h2>
             <p v-if="props.content" class="fs-6 mt-3 mt-sm-5">{{ props.content }}</p>
             <button v-if="props.btn" class="mt-3 btn btn-secondary">{{ props.btn }} </button>
         </div>
@@ -34,9 +34,9 @@ const props = defineProps({
     top: 0;
     left: 0;
     height: 100%;
-    width: 2px;
+    width: 0px;
     content: "";
-    border-left: 2px solid var(--main-word-color); 
+    border-left: 4px solid var(--sub-color); 
     animation: line-draw 1.5s forwards;
 }
 

@@ -1,7 +1,9 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView,useRoute,useRouter } from 'vue-router'
 import { ref } from 'vue'
 
+const route = useRoute()
+const router = useRouter()
 const isShowToggler = ref(true);
 
 function togglerOpen() {
@@ -23,6 +25,13 @@ function togglerClose() {
         isShowToggler.value = true;
     }
 }
+
+function reRenderComponent(){
+    if(route.fullPath.startsWith("/category")){
+        router.go(0);
+    }
+};
+
 </script>
 
 <template>
@@ -42,12 +51,12 @@ function togglerClose() {
                     'd-sm-none': true
                 }" type="button">X</button>
 
-                <div :class="['nav-links d-flex d-sm-flex flex-column align-items-end flex-sm-row gap-4 gap-sm-3', {
+                <div :class="['nav-links d-flex d-sm-flex flex-column align-items-end flex-sm-row gap-4 gap-sm-4', {
                     'd-none': isShowToggler,
                 }]">
-                    <RouterLink @click="togglerClose" to="/">Home</RouterLink>
-                    <RouterLink @click="togglerClose" to="/category">Category</RouterLink>
-                    <RouterLink @click="togglerClose" to="/contact">Contact</RouterLink>
+                    <RouterLink @click="togglerClose" to="/">HOME</RouterLink>
+                    <RouterLink @click="() => { togglerClose(); reRenderComponent(); }" to="/category">VIDEO</RouterLink>
+                    <RouterLink @click="togglerClose" to="/contact">CONTACT</RouterLink>
                 </div>
             </nav>
         </div>
@@ -59,7 +68,6 @@ function togglerClose() {
     width: 100%;
     z-index: 15;
     position: relative;
-
     background: linear-gradient(to bottom, var(--main-color-overlap), rgba(0, 0, 0, 0));
     background-color: var(--main-color-overlap);
     text-align: center;
@@ -73,7 +81,7 @@ function togglerClose() {
 
 .nav-links {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .logo-wrapper {
@@ -123,10 +131,9 @@ function togglerClose() {
     /* 手機版本 nav */
     .nav-links {
         position: fixed;
-        font-size: 1.5rem;
         right: 0rem;
         top: 0rem;
-        width: 80%;
+        width: 60%;
         padding: 4rem 2rem 2rem 2rem;
         margin: 1rem 0rem 0rem 0rem;
         border: 2px solid var(--main-word-color);
@@ -139,10 +146,11 @@ function togglerClose() {
 
     .nav-links a {
         position: relative;
-        width: 50%;
+        width: 100%;
         text-align: right;
         padding-bottom: 0.5rem;
         color: var(--main-word-color);
+        font-size: 1.25rem;
     }
 
     .nav-links a::after {

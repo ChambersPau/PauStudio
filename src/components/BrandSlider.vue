@@ -21,7 +21,7 @@ const props = defineProps({
 .brands-silder-wrapper {
     /* background-color: white; */
     overflow: hidden;
-    padding: 2rem 0rem;
+    padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     white-space: nowrap;
     position: relative;

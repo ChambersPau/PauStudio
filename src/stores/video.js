@@ -10,7 +10,7 @@ export const useVideoStore = defineStore('video', () => {
     async function fetchVideo() {
         isLoading.value = true
         try {
-            const apiRootUrl = 'https://project-vercel-gules-kappa.vercel.app'
+            const apiRootUrl = 'https://pau-studio-vercel-api.vercel.app'
             const payload = {}
             const response = await axios.post(`${apiRootUrl}/api/playlist`, payload)
             if (response.status == 200) {

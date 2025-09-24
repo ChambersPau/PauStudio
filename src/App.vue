@@ -1,30 +1,24 @@
 <script setup>
 import { ref,onMounted } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { useRoute, RouterLink, RouterView } from 'vue-router'
 import HeaderPart from './components/Header.vue'
 import Loading from './components/Loading.vue'
+import FooterPart from './components/Footer.vue'
 import { useVideoStore } from './stores/video'
 
+const route = useRoute()
 const videoStore = useVideoStore()
-const isLoading = ref(true);
 
 onMounted(async () => {
   videoStore.fetchVideo()
-  // .then(res=>{
-  //   console.log(res)
-  // })
-  // console.log(fetchResult)
-  // isLoading.value = fetchResult.isLoading;
-
 })
-
-
 </script>
 
 <template>
   <Loading :is-loading="videoStore.isLoading"/>
   <HeaderPart />
   <RouterView />
+  <FooterPart v-if="route.path !== '/home'" />
 </template>
 
 <style scoped>
