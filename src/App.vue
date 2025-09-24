@@ -17,7 +17,7 @@ onMounted(async () => {
 <template>
   <Loading :is-loading="videoStore.isLoading"/>
   <HeaderPart />
-  <RouterView />
+  <RouterView :key="route.fullPath"/>
   <FooterPart v-if="route.path !== '/home'" />
 </template>
 

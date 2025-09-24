@@ -37,7 +37,7 @@ export const useVideoStore = defineStore('video', () => {
                                 {
                                     videoId: data.videoId,
                                     title: data.title,
-                                    desc:data.description,
+                                    desc: data.description,
                                 }
                             ]
                         };
@@ -46,7 +46,7 @@ export const useVideoStore = defineStore('video', () => {
                         let newVideo = {
                             videoId: data.videoId,
                             title: data.title,
-                            desc:data.description,
+                            desc: data.description,
                         }
                         targetCategory.products.push(newVideo)
                     }
@@ -66,4 +66,13 @@ export const useVideoStore = defineStore('video', () => {
     }
 
     return { TopProducts, Categories, isLoading, fetchVideo }
+})
+
+export const useKeyStore = defineStore('key', () => {
+    const key = ref(0)
+    function updateKey() {
+        key.value += 1
+        console.log(key.value)
+    }
+    return { key, updateKey }
 })

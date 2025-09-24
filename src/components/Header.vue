@@ -26,12 +26,6 @@ function togglerClose() {
     }
 }
 
-function reRenderComponent(){
-    if(route.fullPath.startsWith("/category")){
-        router.go(0);
-    }
-};
-
 </script>
 
 <template>
@@ -55,7 +49,7 @@ function reRenderComponent(){
                     'd-none': isShowToggler,
                 }]">
                     <RouterLink @click="togglerClose" to="/">HOME</RouterLink>
-                    <RouterLink @click="() => { togglerClose(); reRenderComponent(); }" to="/category">VIDEO</RouterLink>
+                    <RouterLink @click="() => { togglerClose(); }" to="/category">VIDEO</RouterLink>
                     <RouterLink @click="togglerClose" to="/contact">CONTACT</RouterLink>
                 </div>
             </nav>
