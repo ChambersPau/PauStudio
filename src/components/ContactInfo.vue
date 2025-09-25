@@ -19,24 +19,28 @@ import BtnItem from '../components/BtnItem.vue'
         </div>
     </div> -->
     <div class="d-flex flex-wrap flex-sm-row justify-content-evenly align-items-center gap-4 gap-sm-0 mx-0">
-        <div class = "d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
             <i class="bi bi-phone-fill"></i>
             <p class="fw-bolder">(+886) 922432481</p>
         </div>
-        <div class = "d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
             <i class="bi bi-envelope-fill"></i>
             <p class="fw-bolder">alroxccc@gmail.com</p>
         </div>
-        <div class = "d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
             <i class="bi bi-line"></i>
-            <p class="fw-bolder">@xxxdddd</p>
+            <p class="fw-bolder">@alroxcc</p>
         </div>
     </div>
 </template>
 
 <style scoped>
+.fix-width-item {
+    flex-basis: 165px;
+    min-width: 165px;
+}
 
-i{
+i {
     font-size: 1.5rem;
 }
 

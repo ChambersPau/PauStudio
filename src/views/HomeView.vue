@@ -97,8 +97,7 @@ onMounted(() => {
             <div
                 class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2">
                 <p>PAU Studio 泡創影音製作 SINCE 2007</p>
-                <p>只要是您能想到的影音類型，都能透過我們的專業團隊，提供您高品質的<span class="fw-bold">客製化影音服務</span>、<span
-                        class="fw-bold">各類影音統籌</span>、<span class="fw-bold">多媒體專業團隊</span></p>
+                <p>只要是您能想到的影音類型，都能透過我們的專業團隊，提供您高品質的<span class="fw-bold">客製化影音服務</span></p>
             </div>
         </section>
 
