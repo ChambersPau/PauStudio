@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
     <!-- <section class="row my-4"> -->
         <div
-            class="contact-infor d-flex flex-column justify-content-center">
+            class="contact-infor d-flex flex-column justify-content-center ps-3">
             <span v-if="props.head" class="fs-6">{{ props.head }}</span>
             <h2 class="fs-1 fw-bold">{{ props.title }}</h2>
             <p v-if="props.content" class="fs-6 mt-3 mt-sm-5">{{ props.content }}</p>
@@ -23,7 +23,6 @@ const props = defineProps({
 <style scoped>
 .contact-infor {
     position: relative;
-    padding-left: 5rem ;
 }
 
 .contact-infor p {
@@ -52,10 +51,6 @@ const props = defineProps({
 }
 
 @media (max-width: 575.98px) {
-    .contact-infor{
-        padding-left: 3rem;
-    }
-
 }
 
 

@@ -66,8 +66,8 @@ onMounted(() => {
             <IntroCard class="offset-1 align-items-start col-11 col-sm-6" :head="''" :title="'分類作品'" :content="''" />
         </section>
         <section v-if="isShowOneCategory" class="d-flex flex-column justify-content-center align-items-center my-4">
-            <div class="banner row p-0 mb-4">
-                <img :src=getImageBannerPath(category)>
+            <div class="banner row mb-4">
+                <img class ="p-0" :src=getImageBannerPath(category)>
             </div>
             <div class="d-flex flex-row flex-wrap justify-content-center align-items-start gap-sm-3 gap-1 mb-3">
                 <BtnItem v-for="cate in Categories" :key="cate.type" @btnClick="chooseCategory(cate)"

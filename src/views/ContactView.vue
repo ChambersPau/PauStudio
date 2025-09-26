@@ -9,8 +9,10 @@ import { ref, onMounted } from 'vue'
         <div class="row my-4">
             <IntroCard class="offset-1 col-11 col-sm-6 align-items-start" :title="'聯絡我們'" />
         </div>
-        <div class="banner row p-0 my-4">
-            <img src="../assets/categoryBanner/Contact.jpg">
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="banner row my-4">
+                <img class="p-0" src="../assets/categoryBanner/Contact.jpg">
+            </div>
         </div>
         <section class="row">
             <ContactInfo class="col-12" />
