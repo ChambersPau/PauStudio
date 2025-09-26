@@ -4,7 +4,7 @@
 <template>
     <footer class="overlay-header">
         <div class="d-flex justify-content-between align-items-center px-3 px-sm-3">
-            <div>©2025 泡創影音製作 PAU Studio</div>
+            <div>Copyright © 2025 泡創影音製作 PAU Studio All rights reserved.</div>
             <ul class="d-flex justify-content-between align-items-center gap-2 gap-sm-3">
                 <li><a href="mailto:alroxccc@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
                 <li><a href="https://line.me/ti/p/drATwB8PmN" target="_blank"><i class="bi bi-line"></i></a></li>
@@ -58,7 +58,7 @@ a:hover {
 @media (max-width: 575.98px) {
     .overlay-header {
         padding: 0rem;
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
     .overlay-header li {

@@ -94,12 +94,12 @@ onMounted(() => {
         <section class="about-section my-8 fade-in-effect">
             <div class="d-flex justify-content-center align-items-center mb-4">
                 <!-- <h3 class="fs-4 title-left-border-draw">關於我們</h3> -->
-                <IntroCard :title="'泡創影音'" />
+                <IntroCard :title="'泡創影音製作'" />
             </div>
             <div
                 class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2 about-section-color">
-                <p>PAU Studio 泡創影音製作 SINCE 2007</p>
-                <p>只要是您能想到的影音類型，都能透過我們的專業團隊，提供您高品質的<span class="fw-bold">客製化影音服務</span></p>
+                <p>PAU Studio SINCE 2007 只要是您能想到的影音類型</p>
+                <p>都能透過我們的專業團隊，提供您高品質的客製化影音服務</p>
             </div>
         </section>
 
@@ -151,12 +151,12 @@ onMounted(() => {
         <section class="contact-section my-8">
             <div class="d-flex justify-content-center align-items-center ">
                 <RouterLink to="/contact">
-                    <BtnItem :is-active="true" :text="'聯繫我們'" :fontSize="'fs-1'" />
+                    <BtnItem :is-active="true" :text="'聯絡我們'" :fontSize="'fs-1'" />
                 </RouterLink>
             </div>
         </section>
         <ToTop />
-        <FooterPart class="mt-10" />
+        <FooterPart class="mt-8" />
     </main>
 </template>
 
