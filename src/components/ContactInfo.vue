@@ -23,18 +23,26 @@ import BtnItem from '../components/BtnItem.vue'
             <i class="bi bi-phone-fill"></i>
             <p class="fw-bolder">(+886) 922432481</p>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
-            <i class="bi bi-envelope-fill"></i>
-            <p class="fw-bolder">alroxccc@gmail.com</p>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
-            <i class="bi bi-line"></i>
-            <p class="fw-bolder">@alroxcc</p>
-        </div>
+        <a href="mailto:alroxccc@gmail.com">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
+                <i class="bi bi-envelope-fill"></i>
+                <p class="fw-bolder">alroxccc@gmail.com</p>
+            </div>
+        </a>
+        <a href="https://line.me/ti/p/drATwB8PmN" target="_blank">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
+                <i class="bi bi-line"></i>
+                <p class="fw-bolder">@alroxcc</p>
+            </div>
+        </a>
     </div>
 </template>
 
 <style scoped>
+a:hover {
+    color: var(--main-word-color);
+}
+
 .fix-width-item {
     flex-basis: 165px;
     min-width: 165px;

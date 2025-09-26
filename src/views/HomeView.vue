@@ -5,6 +5,7 @@ import ContactInfo from '../components/ContactInfo.vue'
 import IntroCard from '../components/IntroCard.vue'
 import FooterPart from '../components/Footer.vue'
 import ToTop from '../components/ToTop.vue'
+import BtnItem from '../components/BtnItem.vue'
 
 import { LogoSlider_First, LogoSlider_Second } from '../assets/globalData'
 import { useVideoStore } from '../stores/video'
@@ -90,25 +91,26 @@ onMounted(() => {
             <button class="mt-3 btn btn-secondary d-none d-lg-block">Learn More > </button>
         </section> -->
 
-        <section class="about-section my-5 fade-in-effect">
-            <div class="d-flex justify-content-center align-items-center section-title mb-3">
-                <h3 class="fs-4 title-left-border-draw">關於我們</h3>
+        <section class="about-section my-8 fade-in-effect">
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <!-- <h3 class="fs-4 title-left-border-draw">關於我們</h3> -->
+                <IntroCard :title="'泡創影音'" />
             </div>
             <div
-                class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2">
+                class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2 about-section-color">
                 <p>PAU Studio 泡創影音製作 SINCE 2007</p>
                 <p>只要是您能想到的影音類型，都能透過我們的專業團隊，提供您高品質的<span class="fw-bold">客製化影音服務</span></p>
             </div>
         </section>
 
-        <section class="cards-section d-flex flex-column justify-content-center gap-0 my-5 fade-in-effect "
+        <section class="cards-section d-flex flex-column justify-content-center gap-0 my-8 fade-in-effect "
             id="cards-section">
-            <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-2">
-                <h3 @click="ShowTopProds" class="fs-4 active">精選作品</h3>
+            <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-3">
+                <h3 @click="ShowTopProds" class="fs-1 active">精選作品</h3>
                 <!-- id="title" -->
-                <span class='fs-4'>|</span>
+                <span class='fs-1'>|</span>
                 <RouterLink to="/category">
-                    <h3 class="fs-4">分類作品</h3>
+                    <h3 class="fs-1">分類作品</h3>
                 </RouterLink>
             </div>
             <div class="cards-wrapper">
@@ -138,21 +140,23 @@ onMounted(() => {
             </div>
         </section>
         <section class="brands-section my-5 fade-in-effect">
-            <div class="d-flex justify-content-center align-items-center section-title mb-3">
-                <h3 class="fs-4 title-left-border-draw">合作品牌</h3>
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <!-- <h3 class="fs-4 title-left-border-draw">合作品牌</h3> -->
+                <IntroCard :title="'合作品牌'" />
             </div>
             <BrandSlider :dir="'right'" :imgSrcs="imgSrcsFirst" />
             <BrandSlider :dir="'left'" :imgSrcs="imgSrcsSecond" />
         </section>
 
-        <section class="contact-section my-5">
-            <div class="d-flex justify-content-center align-items-center section-title mb-3">
-                <h3 class="fs-4 title-left-border-draw">聯繫資訊</h3>
+        <section class="contact-section my-8">
+            <div class="d-flex justify-content-center align-items-center ">
+                <RouterLink to="/contact">
+                    <BtnItem :is-active="true" :text="'聯繫我們'" :fontSize="'fs-1'" />
+                </RouterLink>
             </div>
-            <ContactInfo />
         </section>
         <ToTop />
-        <FooterPart />
+        <FooterPart class="mt-10" />
     </main>
 </template>
 
@@ -190,6 +194,13 @@ onMounted(() => {
     z-index: 2;
 }
 
+
+/* Section About  */
+.about-section-color {
+    color: var(--sub-word-color)
+}
+
+/* Section About  */
 
 /* Section Card  */
 .cards-category h3,
@@ -307,9 +318,9 @@ span {
 
 
 /* Section Brand */
-.section-title {
+/* .section-title {
     font-weight: 700;
-}
+} */
 
 /* Section Brand */
 

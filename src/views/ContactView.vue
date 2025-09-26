@@ -6,7 +6,9 @@ import { ref, onMounted } from 'vue'
 
 <template>
     <main class="container-fluid mt-5">
-        <IntroCard :title="'聯繫資訊'" />
+        <div class="row my-4">
+            <IntroCard class="offset-1 col-11 col-sm-6 align-items-start" :title="'聯絡資訊'" />
+        </div>
         <div class="banner row p-0 my-4">
             <img src="../assets/categoryBanner/Animation.jpg">
         </div>
@@ -17,9 +19,10 @@ import { ref, onMounted } from 'vue'
 </template>
 
 <style scoped>
-.banner{
+.banner {
     max-width: 1440px;
 }
+
 .banner img {
     display: block;
     width: 100%;

@@ -45,7 +45,7 @@ function togglerClose() {
                     'd-sm-none': true
                 }" type="button">X</button>
 
-                <div :class="['nav-links d-flex d-sm-flex flex-column align-items-end flex-sm-row gap-4 gap-sm-4', {
+                <div :class="['nav-links d-flex d-sm-flex flex-column align-items-end flex-sm-row gap-3 gap-sm-4', {
                     'd-none': isShowToggler,
                 }]">
                     <RouterLink @click="togglerClose" to="/">HOME</RouterLink>
@@ -127,8 +127,8 @@ function togglerClose() {
         position: fixed;
         right: 0rem;
         top: 0rem;
-        width: 60%;
-        padding: 4rem 2rem 2rem 2rem;
+        width: 40%;
+        padding: 4rem 2rem 1rem 2rem;
         margin: 1rem 0rem 0rem 0rem;
         border: 2px solid var(--main-word-color);
         border-right: none;
@@ -144,7 +144,7 @@ function togglerClose() {
         text-align: right;
         padding-bottom: 0.5rem;
         color: var(--main-word-color);
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .nav-links a::after {

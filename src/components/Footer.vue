@@ -2,13 +2,13 @@
 </script>
 
 <template>
-    <footer class="overlay-header mt-5">
-        <div class="d-flex justify-content-between align-items-center px-2 px-sm-3">
+    <footer class="overlay-header">
+        <div class="d-flex justify-content-between align-items-center px-3 px-sm-3">
             <div>©2025 泡創影音製作 PAU Studio</div>
             <ul class="d-flex justify-content-between align-items-center gap-2 gap-sm-3">
                 <li><a href="mailto:alroxccc@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
-                <li><a href="https://line.me/ti/p/drATwB8PmN"><i class="bi bi-line"></i></a></li>
-                <li><a href="https://www.youtube.com/@paustudio/featured"><i class="bi bi-youtube"></i></a></li>
+                <li><a href="https://line.me/ti/p/drATwB8PmN" target="_blank"><i class="bi bi-line"></i></a></li>
+                <!-- <li><a href="https://www.youtube.com/@paustudio/featured"><i class="bi bi-youtube"></i></a></li> -->
             </ul>
         </div>
     </footer>
@@ -58,11 +58,11 @@ a:hover {
 @media (max-width: 575.98px) {
     .overlay-header {
         padding: 0rem;
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
 
     .overlay-header li {
-        font-size: 1.0rem;
+        font-size: 1.5rem;
         padding: 0rem;
     }
 

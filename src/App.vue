@@ -18,7 +18,7 @@ onMounted(async () => {
   <Loading :is-loading="videoStore.isLoading"/>
   <HeaderPart />
   <RouterView :key="route.fullPath"/>
-  <FooterPart v-if="route.path !== '/home'" />
+  <FooterPart class="mt-10" v-if="route.path !== '/home' && route.path !== '/'" />
 </template>
 
 <style scoped>

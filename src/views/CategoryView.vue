@@ -34,12 +34,12 @@ function chooseCategory(item) {
 }
 
 function updateQuery(type) {
-  router.push({
-    path: '/category',
-    query: {
-      type: type,
-    }
-  })
+    router.push({
+        path: '/category',
+        query: {
+            type: type,
+        }
+    })
 }
 
 function getImageBannerPath(title) {
@@ -62,9 +62,11 @@ onMounted(() => {
 
 <template>
     <main class="container-fluid mt-5">
-        <IntroCard :head="''" :title="'分類作品'" :content="''" />
-        <section v-if="isShowOneCategory" class="d-flex flex-column justify-content-center align-items-center">
-            <div class="banner row p-0 my-4">
+        <section class="row my-4">
+            <IntroCard class="offset-1 align-items-start col-11 col-sm-6" :head="''" :title="'分類作品'" :content="''" />
+        </section>
+        <section v-if="isShowOneCategory" class="d-flex flex-column justify-content-center align-items-center my-4">
+            <div class="banner row p-0 mb-4">
                 <img :src=getImageBannerPath(category)>
             </div>
             <div class="d-flex flex-row flex-wrap justify-content-center align-items-start gap-sm-3 gap-1 mb-3">
@@ -91,7 +93,7 @@ onMounted(() => {
                 </div>
             </div>
         </section>
-        <section v-if="!isShowOneCategory" class="row my-5">
+        <section v-if="!isShowOneCategory" class="row my-4">
             <div
                 class="d-flex flex-column flex-wrap flex-sm-row justify-content-center align-items-center gap-0 gap-sm-0 p-0">
                 <div v-for="category in Categories" :key="category.type" @click="chooseCategory(category)"
@@ -109,17 +111,17 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
-.banner{
+.banner {
     max-width: 1440px;
 }
+
 .banner img {
     display: block;
     width: 100%;
 }
 
 .card-item-wrapper-product {
-    padding: 0.1rem;
+    padding: 0.2rem;
 }
 
 .card-item-wrapper-category {

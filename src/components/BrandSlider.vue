@@ -108,4 +108,14 @@ const props = defineProps({
     }
 }
 
+
+@media (max-width: 575.98px) {
+    .brands-slider-toright img {
+        height: 40px;
+    }
+
+    .brands-slider-toleft img {
+        height: 40px;
+    }
+}
 </style>

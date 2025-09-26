@@ -57,8 +57,8 @@ a:hover {
 
 @media (max-width: 575.98px) {
     .div-position {
-        bottom: 30px;
-        right: 10px;
+        bottom: 32px;
+        right: 16px;
     }
 }
 </style>

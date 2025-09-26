@@ -5,6 +5,7 @@ const props = defineProps({
     isActive: { type: Boolean, required: false, default: false },
     isDisable: { type: Boolean, required: false, default: false },
     isInfor: { type: Boolean, required: false, default: false },
+    fontSize: { type: String, required: false, default: 'fs-6' },
 })
 
 const emits = defineEmits(['btnClick']);
@@ -12,10 +13,10 @@ const emits = defineEmits(['btnClick']);
 </script>
 
 <template>
-    <button v-if="!isInfor" :class="['btn btn-secondary fw-bold', { 'btn-non-active': !props.isActive }]" @click="emits('btnClick')">
+    <button v-if="!isInfor" :class="['btn btn-secondary fw-bold',props.fontSize, { 'btn-non-active': !props.isActive }]" @click="emits('btnClick')">
         {{ props.text }}
     </button>
-    <div v-if="isInfor" :class="['fw-bold btn-for-infor']">
+    <div v-if="isInfor" :class="['fw-bold btn-for-infor',props.fontSize]">
         {{ props.text }}
     </div>
 </template>
