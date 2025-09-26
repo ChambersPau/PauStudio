@@ -124,7 +124,7 @@ onMounted(() => {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
                                 }
-                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
+                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="`${topProd.videoId}-${index}`">
                         </RouterLink>
                     </div>
                 </div>
