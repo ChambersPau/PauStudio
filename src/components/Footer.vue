@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <footer class="overlay-header">
+    <footer class="overlay-header mb-2">
         <div class="d-flex justify-content-between align-items-center px-3 px-sm-3 gap-1">
             <div>Copyright © 2025 泡創影音製作 PAU Studio All rights reserved.</div>
             <ul class="d-flex justify-content-between align-items-center gap-2 gap-sm-3">
@@ -22,6 +22,7 @@
     background-color: var(--main-color-overlap);
     text-align: center;
     padding: 0.5rem;
+    border-top: 1px solid var(--sub-word-color);
 }
 
 .overlay-header li {
@@ -57,7 +58,7 @@ a:hover {
 
 @media (max-width: 575.98px) {
     .overlay-header {
-        padding: 0rem;
+        padding: 0.5rem;
         font-size: 0.5rem;
     }
 
