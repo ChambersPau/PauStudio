@@ -135,12 +135,14 @@ onMounted(() => {
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-                            <img
-                                :class="['card-image',
+
+                             <!-- :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
-                                }]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd">
+                                }]"  -->
+                            <img
+                                :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd">
                         </RouterLink>
                     </div>
                 </div>
