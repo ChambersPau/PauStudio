@@ -69,7 +69,7 @@ onMounted(() => {
     isShowTopProds.value = true;
     topProds.value = videoStore.TopProducts
 
-    updateButtons();
+    // updateButtons();
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
@@ -135,13 +135,12 @@ onMounted(() => {
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-
-                             <!-- :class="['card-image',
+                            <img
+                                :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
-                                }]"  -->
-                            <img
+                                }]" 
                                 :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd">
                         </RouterLink>
                     </div>
