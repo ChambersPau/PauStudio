@@ -9,10 +9,10 @@ const props = defineProps({
 <template>
     <div class="brands-silder-wrapper fade-in-effect-brand ">
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="imgSrc" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc">
         </div>
     </div>
 </template>
