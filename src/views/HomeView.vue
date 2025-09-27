@@ -129,12 +129,12 @@ onMounted(() => {
                 </RouterLink>
             </div>
             <div class="cards-wrapper">
-                <button @click="ClickLeftBtn" class="carousel-btn left">&#10094;</button>
-                <div v-if="isShowTopProds" ref="tracker" class="cards-tracker">
+                <button v-show="isShowLeftBtn" @click="ClickLeftBtn" class="carousel-btn left">&#10094;</button>
+                <div ref="tracker" class="cards-tracker">
                     <div v-for="topProd in topProds" :key="topProd.videoId" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-                            <img  loading="lazy"
+                            <img
                                 :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
