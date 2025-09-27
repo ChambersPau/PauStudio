@@ -14,7 +14,7 @@ import { ref, onMounted } from 'vue'
 
 const videoStore = useVideoStore()
 const topProds = ref([]);
-const isShowTopProds = ref(true);
+const isShowTopProds = ref(false);
 const isShowLeftBtn = ref(false);
 const isShowRightBtn = ref(true);
 const tracker = ref(null);
@@ -66,6 +66,7 @@ function getLogoImagePath(name) {
 }
 
 onMounted(() => {
+    isShowTopProds.value = true;
     topProds.value = videoStore.TopProducts
 
     updateButtons();
@@ -128,7 +129,7 @@ onMounted(() => {
                     <h3 class="fs-1">分類作品</h3>
                 </RouterLink>
             </div>
-            <div class="cards-wrapper">
+            <div class="cards-wrapper" v-if="isShowTopProds">
                 <button v-show="isShowLeftBtn" @click="ClickLeftBtn" class="carousel-btn left">&#10094;</button>
                 <div ref="tracker" class="cards-tracker">
                     <div v-for="topProd in topProds" :key="topProd.videoId" class="card-item">
@@ -146,7 +147,7 @@ onMounted(() => {
                 <button @click="ClickRightBtn" v-show="isShowRightBtn" class="carousel-btn right">&#10095;</button>
             </div>
         </section>
-        <section class="brands-section my-5 fade-in-effect">
+        <section class="brands-section my-5 fade-in-effect" v-if="isShowTopProds">
             <div class="d-flex justify-content-center align-items-center mb-4">
                 <!-- <h3 class="fs-4 title-left-border-draw">合作品牌</h3> -->
                 <IntroCard :title="'合作品牌'" />
