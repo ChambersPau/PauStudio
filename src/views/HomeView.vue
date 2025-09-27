@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref, onMounted } from 'vue'
 
 const videoStore = useVideoStore()
-const topProds = videoStore.TopProducts
+const topProds = ref([]);
 const isShowTopProds = ref(true);
 const isShowLeftBtn = ref(false);
 const isShowRightBtn = ref(true);
@@ -66,18 +66,23 @@ function getLogoImagePath(name) {
 }
 
 onMounted(() => {
+    topProds.value = videoStore.TopProducts
+
     updateButtons();
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
-    setTimeout(() => {
-        topProds.forEach(item => {
-            const img = new Image();
-            img.onload = () => {};
-            img.onerror = () => {};
-            img.src = `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
-        });
-    }, 100); // 延遲 100ms
+
+
+
+    // setTimeout(() => {
+    //     topProds.forEach(item => {
+    //         const img = new Image();
+    //         img.onload = () => {};
+    //         img.onerror = () => {};
+    //         img.src = `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
+    //     });
+    // }, 100); // 延遲 100ms
 });
 
 </script>
