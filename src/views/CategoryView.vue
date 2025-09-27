@@ -61,8 +61,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="container-fluid mt-5">
-        <section class="row my-4">
+    <main class="container-fluid mt-3">
+        <section class="row mb-4">
             <IntroCard class="offset-1 align-items-start col-11 col-sm-6" :head="''" :title="'分類作品'" :content="''" />
         </section>
         <section v-if="isShowOneCategory" class="d-flex flex-column justify-content-center align-items-center my-4">

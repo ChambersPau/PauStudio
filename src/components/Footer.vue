@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <footer class="overlay-header mb-2">
+    <footer class="overlay-header mb-4">
         <div class="d-flex justify-content-between align-items-center px-3 px-sm-3 gap-1">
             <div>Copyright © 2025 泡創影音製作 PAU Studio All rights reserved.</div>
             <ul class="d-flex justify-content-between align-items-center gap-2 gap-sm-3">

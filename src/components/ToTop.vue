@@ -16,7 +16,7 @@ function toTop() {
 <style scoped>
 .div-position {
     position: fixed;
-    bottom: 68px;
+    bottom: 86px;
     right: 32px;
     z-index: 50;
     text-align: center;
@@ -57,7 +57,7 @@ a:hover {
 
 @media (max-width: 575.98px) {
     .div-position {
-        bottom: 50px;
+        bottom: 70px;
         right: 24px;
     }
 }

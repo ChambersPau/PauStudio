@@ -70,6 +70,14 @@ onMounted(() => {
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
+    setTimeout(() => {
+        topProds.forEach(item => {
+            const img = new Image();
+            img.onload = () => {};
+            img.onerror = () => {};
+            img.src = `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
+        });
+    }, 100); // 延遲 100ms
 });
 
 </script>
@@ -97,9 +105,11 @@ onMounted(() => {
                 <IntroCard :title="'泡創影音製作'" />
             </div>
             <div
-                class="d-flex flex-column justify-content-sm-center justify-content-start align-items-start align-items-sm-center mx-5 gap-2 about-section-color">
-                <p>PAU Studio SINCE 2007 只要是您能想到的影音類型</p>
-                <p>都能透過我們的專業團隊，提供您高品質的客製化影音服務</p>
+                class="d-flex flex-column justify-content-center align-items-start align-items-center mx-5 gap-2 about-section-color">
+                <p>PAU Studio · SINCE 2007</p>
+                <p>我們相信，每支影片都能說出一個「好故事」。</p>
+                <p>從企劃發想、拍攝執行到後期製作，我們提供完整的影音解決方案，</p>
+                <p>以專業團隊將您的想法化為高品質影像，讓故事展現更強大的力量。</p>
             </div>
         </section>
 
@@ -124,7 +134,8 @@ onMounted(() => {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
                                 }
-                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="`${topProd.videoId}-${index}`">
+                            ]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image"
+                                :key="`${topProd.videoId}-${index}`">
                         </RouterLink>
                     </div>
                 </div>
@@ -149,9 +160,20 @@ onMounted(() => {
         </section>
 
         <section class="contact-section my-8">
-            <div class="d-flex justify-content-center align-items-center ">
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+                <div class="logo-wrapper d-none d-sm-block">
+                    <RouterLink to="/">
+                        <img src="../assets/PAU STUDIO LOGO_white.png">
+                    </RouterLink>
+                </div>
+                <!-- <div class="contact-line"></div> -->
+                <div class="contac-box ps-3 d-flex flex-column justify-content-center align-items-start gap-1">
+                    <p>各類影音統籌</p>
+                    <p>多媒體專業團隊</p>
+                    <p>客製化影音服務</p>
+                </div>
                 <RouterLink to="/contact">
-                    <BtnItem :is-active="true" :text="'聯絡我們'" :fontSize="'fs-1'" />
+                    <BtnItem :is-active="true" :text="'聯絡我們'" :fontSize="'fs-6'" />
                 </RouterLink>
             </div>
         </section>
@@ -328,5 +350,43 @@ span {
 .title-left-border-draw {
     padding: 0rem 0 0rem 0.5rem;
     border-left: 4px solid var(--sub-color);
+}
+
+.contac-box {
+    border-left: 4px solid var(--sub-color);
+}
+
+.logo-wrapper {
+    max-width: 150px;
+}
+
+.logo-wrapper img {
+    width: 100%;
+}
+
+.contact-line {
+    align-self: stretch;
+    position: relative;
+}
+
+.contact-line::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    content: "";
+    border-left: 4px solid var(--sub-color);
+    animation: line-draw 1.5s forwards;
+}
+
+@keyframes line-draw {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
 }
 </style>
