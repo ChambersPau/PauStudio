@@ -69,7 +69,7 @@ onMounted(() => {
     isShowTopProds.value = true;
     topProds.value = videoStore.TopProducts
 
-    // updateButtons();
+    updateButtons();
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
