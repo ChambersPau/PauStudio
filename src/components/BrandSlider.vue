@@ -8,13 +8,11 @@ const props = defineProps({
 
 <template>
     <!-- fade-in-effect-brand -->
-    <div class="brands-silder-wrapper  ">
-        <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
+    <div class="brands-silder-wrapper d-flex">
+        <div :class="['d-flex', props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <img v-for="(imgSrc, index) in props.imgSrcs" :key="imgSrc" :src="imgSrc">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
             <img v-for="(imgSrc, index) in props.imgSrcs" :key="imgSrc" :src="imgSrc">
         </div>
     </div>
@@ -22,9 +20,7 @@ const props = defineProps({
 
 <style scoped>
 .brands-silder-wrapper {
-    overflow: hidden;
-    /* overflow-x: hidden;
-    overflow-y: hidden; */
+    /* overflow: hidden; */
     padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     white-space: nowrap;
@@ -57,37 +53,39 @@ const props = defineProps({
 }
 
 .brands-slider-toright {
-    display: inline-block;
+    /* display: inline-block; */
+    /* display:flex; */
     animation: 100s slide-toright infinite linear;
     will-change: transform;
 }
 
 .brands-slider-toleft {
-    display: inline-block;
+    /* display: inline-block; */
+    /* display:flex; */
     animation: 100s slide-toleft infinite linear;
     will-change: transform;
 }
 
 @keyframes slide-toright {
     from {
-        transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%, 0, 0);
         -webkit-transform: translate3d(-100%, 0, 0);
     }
 
     to {
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
         -webkit-transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes slide-toleft {
     from {
-        transform: translateX(0,0,0);
+        transform: translate3d(0, 0, 0);
         -webkit-transform: translate3d(0, 0, 0);
     }
 
     to {
-        transform: translateX(-100%,0,0);
+        transform: translate3d(-100%, 0, 0);
         -webkit-transform: translate3d(-100%, 0, 0);
     }
 }
