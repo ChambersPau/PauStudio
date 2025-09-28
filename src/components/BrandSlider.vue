@@ -10,11 +10,11 @@ const props = defineProps({
     <div class="brands-silder-wrapper fade-in-effect-brand ">
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
-            <img v-for="(imgSrc, index) in props.imgSrcs" v-lazy="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
-            <img v-for="(imgSrc, index) in props.imgSrcs" v-lazy="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
         </div>
     </div>
 </template>
@@ -86,12 +86,14 @@ const props = defineProps({
 
 .brands-slider-toright img {
     height: 50px;
-    margin: 0rem 1rem
+    margin: 0rem 1rem;
+    /* display: block; */
 }
 
 .brands-slider-toleft img {
     height: 50px;
-    margin: 0rem 1rem
+    margin: 0rem 1rem;
+    /* display: block; */
 }
 
 .fade-in-effect-brand {

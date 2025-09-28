@@ -135,12 +135,14 @@ onMounted(() => {
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-                            <img
-                                :class="['card-image',
+
+                            <!-- :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
-                                }]" 
+                                }]"  -->
+
+                            <img
                                 v-lazy="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
 
 <!-- :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd"> -->
@@ -258,7 +260,7 @@ span {
     transition: all 0.5s ease-in-out;
     position: relative;
     aspect-ratio: 4 / 5;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @media (max-width: 575.98px) {
@@ -271,8 +273,9 @@ span {
 .card-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    /* object-fit: cover;
+    object-position: center; */
+    display:block
 }
 
 
@@ -296,15 +299,14 @@ span {
     margin: 0rem 0rem;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    /* Firefox */
     -ms-overflow-style: none;
-    /* IE 10+ */
-    /* 手機 滑動 */
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    touch-action: pan-x; */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .cards-tracker::-webkit-scrollbar {
