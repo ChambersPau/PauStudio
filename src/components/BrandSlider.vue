@@ -7,10 +7,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="brands-silder-wrapper fade-in-effect-brand ">
+    <!-- fade-in-effect-brand -->
+    <div class="brands-silder-wrapper  ">
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="imgSrc" :src="imgSrc">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
@@ -21,7 +22,7 @@ const props = defineProps({
 
 <style scoped>
 .brands-silder-wrapper {
-    overflow: clip;
+    overflow: hidden;
     /* overflow-x: hidden;
     overflow-y: hidden; */
     padding: 0rem 0rem;
@@ -57,34 +58,34 @@ const props = defineProps({
 
 .brands-slider-toright {
     display: inline-block;
-    animation: 100s slide-toright infinite linear;
+    /* animation: 100s slide-toright infinite linear; */
 }
 
 .brands-slider-toleft {
     display: inline-block;
-    animation: 100s slide-toleft infinite linear;
+    /* animation: 100s slide-toleft infinite linear; */
 }
 
 @keyframes slide-toright {
     from {
-        transform: translateX(-100%);
+        transform: translate3d(-100%,0,0);
         -webkit-transform: translate3d(-100%, 0, 0);
     }
 
     to {
-        transform: translateX(0);
+        transform: translate3d(0,0,0);
         -webkit-transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes slide-toleft {
     from {
-        transform: translateX(0);
+        transform: translateX(0,0,0);
         -webkit-transform: translate3d(0, 0, 0);
     }
 
     to {
-        transform: translateX(-100%);
+        transform: translateX(-100%,0,0);
         -webkit-transform: translate3d(-100%, 0, 0);
     }
 }
