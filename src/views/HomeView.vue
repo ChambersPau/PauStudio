@@ -260,7 +260,7 @@ span {
     transition: all 0.5s ease-in-out;
     position: relative;
     aspect-ratio: 4 / 5;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 @media (max-width: 575.98px) {

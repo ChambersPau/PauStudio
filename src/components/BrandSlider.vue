@@ -21,7 +21,7 @@ const props = defineProps({
 
 <style scoped>
 .brands-silder-wrapper {
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     white-space: nowrap;
@@ -86,13 +86,13 @@ const props = defineProps({
 .brands-slider-toright img {
     height: 50px;
     margin: 0rem 1rem;
-    display: inline-block;;
+    /* display: inline-block; */
 }
 
 .brands-slider-toleft img {
     height: 50px;
     margin: 0rem 1rem;
-    display: inline-block;;
+    /* display: inline-block; */
 }
 
 .fade-in-effect-brand {
