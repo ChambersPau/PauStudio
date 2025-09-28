@@ -14,7 +14,7 @@ const props = defineProps({
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <!-- <img v-for="(imgSrc, index) in props.imgSrcs" :src="imgSrc"> -->
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="imgSrc" :src="imgSrc">
         </div>
     </div>
 </template>

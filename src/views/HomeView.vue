@@ -135,18 +135,13 @@ onMounted(() => {
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-
-                            <!-- :class="['card-image',
+                            <img
+                                :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
-                                }]"  -->
-
-                            <img
-                                v-lazy="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
-
-<!-- :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd"> -->
-
+                                }]" 
+                                :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
                         </RouterLink>
                     </div>
                 </div>
@@ -260,7 +255,7 @@ span {
     transition: all 0.5s ease-in-out;
     position: relative;
     aspect-ratio: 4 / 5;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 @media (max-width: 575.98px) {
@@ -274,8 +269,8 @@ span {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* object-position: center; */
-    display:block
+    object-position: center;
+    /* display:block */
 }
 
 
