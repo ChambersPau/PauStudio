@@ -7,11 +7,11 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="brands-silder-wrapper d-flex fade-in-effect-brand">
+    <div class="brands-silder-wrapper d-flex no-wrap fade-in-effect-brand">
         <div :class="['d-flex', props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc" loading="lazy">
         </div>
-        <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
+        <div :class="['d-flex', props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
             <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc" loading="lazy">
         </div>
     </div>
@@ -50,10 +50,9 @@ const props = defineProps({
     right: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
 }
-
 .brands-slider-toright {
     /* display: inline-block; */
-    display:flex;
+    display: flex;
     animation: 100s slide-toright infinite linear;
     /* will-change: transform;
     transform: translateZ(0); */
@@ -61,11 +60,10 @@ const props = defineProps({
 
 .brands-slider-toleft {
     /* display: inline-block; */
-    display:flex;
+    display: flex;
     animation: 100s slide-toleft infinite linear;
     /* will-change: transform;
     transform: translateZ(0); */
-   
 }
 
 @keyframes slide-toright {
@@ -100,18 +98,22 @@ const props = defineProps({
 .brands-slider-toright img {
     /* width: auto; */
     aspect-ratio: 4 / 1;
+    /* max-width: 800px; */
     height: 50px;
     margin: 0rem 1rem;
-    max-width: 800px;
+    /* width: auto; */
+    object-fit: contain;
     /* display: inline-block; */
 }
 
 .brands-slider-toleft img {
     /* width: auto; */
     aspect-ratio: 4 / 1;
+    /* max-width: 800px; */
     height: 50px;
     margin: 0rem 1rem;
-    max-width: 800px;
+    /* width: auto; */
+    object-fit: contain;
     /* display: inline-block; */
 }
 
