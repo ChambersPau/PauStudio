@@ -9,17 +9,17 @@ const props = defineProps({
 <template>
     <div class="brands-silder-wrapper d-flex fade-in-effect-brand">
         <div :class="['d-flex', props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" v-lazy="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc" loading="lazy">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" v-lazy="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc" loading="lazy">
         </div>
     </div>
 </template>
 
 <style scoped>
 .brands-silder-wrapper {
-    /* overflow: hidden; */
+    overflow: hidden;
     padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     /* white-space: nowrap; */
@@ -40,7 +40,7 @@ const props = defineProps({
     height: 100%;
     z-index: 2;
 }
-/* 
+
 .brands-silder-wrapper::before {
     left: 0;
     background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
@@ -49,24 +49,23 @@ const props = defineProps({
 .brands-silder-wrapper::after {
     right: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
-} */
+}
 
 .brands-slider-toright {
     /* display: inline-block; */
     display:flex;
     animation: 100s slide-toright infinite linear;
-    will-change: transform;
-    transform: translateZ(0); /* GPU 合成 */
-    min-width: 4290.5px;
+    /* will-change: transform;
+    transform: translateZ(0); */
 }
 
 .brands-slider-toleft {
     /* display: inline-block; */
     display:flex;
     animation: 100s slide-toleft infinite linear;
-    will-change: transform;
-    transform: translateZ(0); /* GPU 合成 */
-    min-width: 4184px;
+    /* will-change: transform;
+    transform: translateZ(0); */
+   
 }
 
 @keyframes slide-toright {
@@ -99,16 +98,20 @@ const props = defineProps({
 
 
 .brands-slider-toright img {
-    width: auto;
+    /* width: auto; */
+    aspect-ratio: 4 / 1;
     height: 50px;
     margin: 0rem 1rem;
+    max-width: 800px;
     /* display: inline-block; */
 }
 
 .brands-slider-toleft img {
-    width: auto;
+    /* width: auto; */
+    aspect-ratio: 4 / 1;
     height: 50px;
     margin: 0rem 1rem;
+    max-width: 800px;
     /* display: inline-block; */
 }
 
