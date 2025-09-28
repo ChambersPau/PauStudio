@@ -129,7 +129,7 @@ onMounted(() => {
                     <h3 class="fs-1">分類作品</h3>
                 </RouterLink>
             </div>
-            <div class="cards-wrapper" v-if="isShowTopProds">
+            <div class="cards-wrapper">
                 <button v-show="isShowLeftBtn" @click="ClickLeftBtn" class="carousel-btn left">&#10094;</button>
                 <div ref="tracker" class="cards-tracker">
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
@@ -141,14 +141,17 @@ onMounted(() => {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
                                 }]" 
-                                :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd">
+                                v-lazy="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
+
+<!-- :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image" :key="topProd"> -->
+
                         </RouterLink>
                     </div>
                 </div>
                 <button @click="ClickRightBtn" v-show="isShowRightBtn" class="carousel-btn right">&#10095;</button>
             </div>
         </section>
-        <section class="brands-section my-5 fade-in-effect" v-if="isShowTopProds">
+        <section class="brands-section my-5 fade-in-effect">
             <div class="d-flex justify-content-center align-items-center mb-4">
                 <!-- <h3 class="fs-4 title-left-border-draw">合作品牌</h3> -->
                 <IntroCard :title="'合作品牌'" />
