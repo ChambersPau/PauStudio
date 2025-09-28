@@ -9,17 +9,17 @@ const props = defineProps({
 <template>
     <div class="brands-silder-wrapper d-flex fade-in-effect-brand">
         <div :class="['d-flex', props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" v-lazy="imgSrc">
         </div>
         <div :class="[props.dir === 'left' ? 'brands-slider-toleft' : 'brands-slider-toright']">
-            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" :src="imgSrc">
+            <img v-for="(imgSrc, index) in props.imgSrcs" :key="index" v-lazy="imgSrc">
         </div>
     </div>
 </template>
 
 <style scoped>
 .brands-silder-wrapper {
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     /* white-space: nowrap; */
@@ -57,6 +57,7 @@ const props = defineProps({
     animation: 100s slide-toright infinite linear;
     will-change: transform;
     transform: translateZ(0); /* GPU 合成 */
+    min-width: 4290.5px;
 }
 
 .brands-slider-toleft {
@@ -65,6 +66,7 @@ const props = defineProps({
     animation: 100s slide-toleft infinite linear;
     will-change: transform;
     transform: translateZ(0); /* GPU 合成 */
+    min-width: 4184px;
 }
 
 @keyframes slide-toright {
