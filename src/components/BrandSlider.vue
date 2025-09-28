@@ -58,12 +58,14 @@ const props = defineProps({
 
 .brands-slider-toright {
     display: inline-block;
-    /* animation: 100s slide-toright infinite linear; */
+    animation: 100s slide-toright infinite linear;
+    will-change: transform;
 }
 
 .brands-slider-toleft {
     display: inline-block;
-    /* animation: 100s slide-toleft infinite linear; */
+    animation: 100s slide-toleft infinite linear;
+    will-change: transform;
 }
 
 @keyframes slide-toright {
