@@ -21,12 +21,19 @@ const props = defineProps({
 
 <style scoped>
 .brands-silder-wrapper {
-    /* overflow: hidden; */
+    overflow: clip;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
     padding: 0rem 0rem;
     margin: 0.5rem 0rem;
     white-space: nowrap;
     position: relative;
 }
+
+.brands-silder-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
 
 .brands-silder-wrapper::before,
 .brands-silder-wrapper::after {
@@ -61,20 +68,24 @@ const props = defineProps({
 @keyframes slide-toright {
     from {
         transform: translateX(-100%);
+        -webkit-transform: translate3d(-100%, 0, 0);
     }
 
     to {
         transform: translateX(0);
+        -webkit-transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes slide-toleft {
     from {
         transform: translateX(0);
+        -webkit-transform: translate3d(0, 0, 0);
     }
 
     to {
         transform: translateX(-100%);
+        -webkit-transform: translate3d(-100%, 0, 0);
     }
 }
 
@@ -86,13 +97,13 @@ const props = defineProps({
 .brands-slider-toright img {
     height: 50px;
     margin: 0rem 1rem;
-    /* display: inline-block; */
+    display: inline-block;
 }
 
 .brands-slider-toleft img {
     height: 50px;
     margin: 0rem 1rem;
-    /* display: inline-block; */
+    display: inline-block;
 }
 
 .fade-in-effect-brand {
