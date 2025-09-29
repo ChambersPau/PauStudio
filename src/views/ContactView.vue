@@ -4,7 +4,8 @@ import IntroCard from '../components/IntroCard.vue'
 </script>
 
 <template>
-    <main class="container-fluid mt-3">
+    <!-- mt-3 -->
+    <main class="container-fluid mt-8">
         <div class="row mb-4">
             <IntroCard class="offset-1 col-11 col-sm-6 align-items-start" :title="'聯絡我們'" />
         </div>

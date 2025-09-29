@@ -41,7 +41,8 @@ onMounted(async () => {
 </script>
 
 <template>
-    <main class="container-fluid mt-5">
+    <!-- mt-5 -->
+    <main class="container-fluid mt-8">
         <section class="back-section row">
             <div class="offset-0 offset-sm-1 col-11 d-flex justify-content-start align-items-center gap-2">
                 <RouterLink to="/">

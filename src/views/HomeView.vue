@@ -115,8 +115,9 @@ onMounted(() => {
             id="cards-section">
             <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-3">
                 <h3 class="fs-2 active">精選作品</h3>
-                <!-- id="title" -->
-                <span class='fs-2'>|</span>
+                <div class="d-flex justify-content-center align-items-center">
+                     <span class='fs-2' style="vertical-align: middle;">❘</span>
+                </div>
                 <RouterLink to="/category">
                     <h3 class="fs-2">分類作品</h3>
                 </RouterLink>
@@ -251,7 +252,7 @@ span {
 @media (max-width: 575.98px) {
     .card-item {
         padding: 0.1rem;
-        max-width: 120px;
+        max-width: 138px;
     }
 }
 

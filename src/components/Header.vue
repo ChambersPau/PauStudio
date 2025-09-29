@@ -63,7 +63,14 @@ function togglerClose() {
 .overlay-header {
     width: 100%;
     z-index: 15;
-    position: relative;
+    /* position: relative; */
+
+    /* fix */
+    position: fixed;
+    top:0;
+    left: 0;
+    /* fix */
+
     background: linear-gradient(to bottom, var(--main-color-overlap), rgba(0, 0, 0, 0));
     background-color: var(--main-color-overlap);
     text-align: center;
@@ -100,7 +107,8 @@ function togglerClose() {
         /* background-color: transparent; */
 
         /* 手機版本 nav 置頂*/
-        position: relative;
+        /* position: relative; */
+        position: fixed;
         top: 0;
         left: 0;
         /* 手機版本 nav 置頂*/
