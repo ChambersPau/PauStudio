@@ -1,10 +1,6 @@
 <script setup>
-import IntroCard from '../components/IntroCard.vue'
-import ContactInfo from '../components/ContactInfo.vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
-import axios from 'axios';
-// import { Categories } from '../assets/globalData'
 import { useVideoStore } from '../stores/video'
 
 const videoStore = useVideoStore()

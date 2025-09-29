@@ -1,29 +1,13 @@
 <script setup>
-import BtnItem from '../components/BtnItem.vue'
 </script>
 
 <template>
-    <!-- <div
-        class=" d-flex flex-column flex-sm-row justify-content-start align-items-start ps-5 gap-5 gap-sm-5 fade-in-effect-contain-less">
-        <div class="d-flex flex-column justify-content-center align-items-start gap-3">
-            <BtnItem :text="'Info.'" :is-infor="true" />
-            <div>Email：alroxccc@gmail.com</div>
-            <div>Phone：<a href="tel:+886922432481">(+886)922432481</a></div>
-            <div>Link Tree：TBC</div>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-start gap-3 ">
-            <BtnItem :text="'Line QR-Code'" :is-infor="true" />
-            <div class="line-wrapper">
-                <img src="../assets/LINE_QRcode.jpg">
-            </div>
-        </div>
-    </div> -->
-    <div class="d-flex flex-wrap flex-sm-row justify-content-evenly align-items-center gap-4 gap-sm-0 mx-0">
+    <div class="d-flex flex-wrap flex-column flex-sm-row justify-content-evenly align-items-center gap-4 gap-sm-0 mx-0">
         <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
             <i class="bi bi-phone-fill"></i>
-            <p class="fw-bolder">(+886) 922432481</p>
+            <p class="fw-bolder remove-decoration"><span>0922</span>-<span>432</span>-<span>481</span></p>
         </div>
-        <a href="mailto:alroxccc@gmail.com">
+        <a href="mailto:alroxccc@gmail.com" target="_blank">
             <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
                 <i class="bi bi-envelope-fill"></i>
                 <p class="fw-bolder">alroxccc@gmail.com</p>
@@ -32,7 +16,7 @@ import BtnItem from '../components/BtnItem.vue'
         <a href="https://line.me/ti/p/drATwB8PmN" target="_blank">
             <div class="d-flex flex-column justify-content-center align-items-center gap-sm-3 gap-1 fix-width-item">
                 <i class="bi bi-line"></i>
-                <p class="fw-bolder">@alroxcc</p>
+                <p class="fw-bolder">alroxcc</p>
             </div>
         </a>
     </div>
@@ -71,6 +55,11 @@ h3 {
     animation-range: cover 0% contain 20%;
 }
 
+.decoration {
+    text-decoration: none;
+    color: inherit;
+}
+
 @keyframes fadeIn-less {
     from {
         opacity: 0;
@@ -78,6 +67,12 @@ h3 {
 
     to {
         opacity: 1;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .fix-width-item {
+        flex-basis: 0px;
     }
 }
 </style>

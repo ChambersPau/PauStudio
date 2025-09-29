@@ -1,7 +1,6 @@
 <script setup>
 import ContactInfo from '../components/ContactInfo.vue'
 import IntroCard from '../components/IntroCard.vue'
-import { ref, onMounted } from 'vue'
 </script>
 
 <template>

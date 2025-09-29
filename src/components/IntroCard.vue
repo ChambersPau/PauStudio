@@ -13,7 +13,7 @@ const props = defineProps({
         <div
             class="contact-infor d-flex flex-column justify-content-center ps-3">
             <span v-if="props.head" class="fs-6">{{ props.head }}</span>
-            <h2 class="fs-1 fw-bold">{{ props.title }}</h2>
+            <h2 class="fs-2 fw-bold">{{ props.title }}</h2>
             <p v-if="props.content" class="fs-6 mt-3 mt-sm-5">{{ props.content }}</p>
             <button v-if="props.btn" class="mt-3 btn btn-secondary">{{ props.btn }} </button>
         </div>

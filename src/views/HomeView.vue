@@ -1,7 +1,5 @@
 <script setup>
 import BrandSlider from '@/components/BrandSlider.vue';
-import CategoryImgCard from '../components/CategoryImgCard.vue'
-import ContactInfo from '../components/ContactInfo.vue'
 import IntroCard from '../components/IntroCard.vue'
 import FooterPart from '../components/Footer.vue'
 import ToTop from '../components/ToTop.vue'
@@ -73,17 +71,6 @@ onMounted(() => {
     tracker.value?.addEventListener('scroll', updateButtons);
     imgSrcsFirst.value = LogoSlider_First.map(item => getLogoImagePath(item))
     imgSrcsSecond.value = LogoSlider_Second.map(item => getLogoImagePath(item))
-
-
-
-    // setTimeout(() => {
-    //     topProds.value.forEach(item => {
-    //         const img = new Image();
-    //         img.onload = () => {};
-    //         img.onerror = () => {};
-    //         img.src = `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
-    //     });
-    // }, 100); // 延遲 100ms
 });
 
 </script>
@@ -107,26 +94,31 @@ onMounted(() => {
 
         <section class="about-section my-8 fade-in-effect">
             <div class="d-flex justify-content-center align-items-center mb-4">
-                <!-- <h3 class="fs-4 title-left-border-draw">關於我們</h3> -->
                 <IntroCard :title="'泡創影音製作'" />
             </div>
             <div
-                class="d-flex flex-column justify-content-center align-items-start align-items-center mx-5 gap-2 about-section-color">
+                class="d-flex flex-column justify-content-center align-items-center mx-1 mx-sm-5 gap-2 about-section-color">
                 <p>PAU Studio · SINCE 2007</p>
                 <p>我們相信，每支影片都能說出一個「好故事」。</p>
-                <p>從企劃發想、拍攝執行到後期製作，我們提供完整的影音解決方案，</p>
-                <p>以專業團隊將您的想法化為高品質影像，讓故事展現更強大的力量。</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 gap-sm-0">
+                    <p>從企劃發想、拍攝執行到後期製作，</p>
+                    <p>我們提供完整的影音解決方案，</p>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2 gap-sm-0">
+                    <p>以專業團隊將您的想法化為高品質影像，</p>
+                    <p>讓故事展現更強大的力量。</p>
+                </div>
             </div>
         </section>
 
         <section class="cards-section d-flex flex-column justify-content-center gap-0 my-8 fade-in-effect "
             id="cards-section">
             <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-3">
-                <h3 class="fs-1 active">精選作品</h3>
+                <h3 class="fs-2 active">精選作品</h3>
                 <!-- id="title" -->
-                <span class='fs-1'>|</span>
+                <span class='fs-2'>|</span>
                 <RouterLink to="/category">
-                    <h3 class="fs-1">分類作品</h3>
+                    <h3 class="fs-2">分類作品</h3>
                 </RouterLink>
             </div>
             <div class="cards-wrapper">
@@ -150,7 +142,6 @@ onMounted(() => {
         </section>
         <section class="brands-section my-5 fade-in-effect">
             <div class="d-flex justify-content-center align-items-center mb-4">
-                <!-- <h3 class="fs-4 title-left-border-draw">合作品牌</h3> -->
                 <IntroCard :title="'合作品牌'" />
             </div>
             <BrandSlider :dir="'right'" :imgSrcs="imgSrcsFirst" />
@@ -165,7 +156,7 @@ onMounted(() => {
                     </RouterLink>
                 </div>
                 <!-- <div class="contact-line"></div> -->
-                <div class="contac-box ps-3 d-flex flex-column justify-content-center align-items-start gap-1">
+                <div class="contac-box ps-3 d-flex flex-column justify-content-center align-items-start gap-2">
                     <p>各類影音統籌</p>
                     <p>多媒體專業團隊</p>
                     <p>客製化影音服務</p>
@@ -219,7 +210,6 @@ onMounted(() => {
 .about-section-color {
     color: var(--sub-word-color)
 }
-
 /* Section About  */
 
 /* Section Card  */
@@ -294,12 +284,6 @@ span {
     margin: 0rem 0rem;
     overflow-x: auto;
     overflow-y: hidden;
-    /* scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x; */
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
@@ -335,15 +319,6 @@ span {
 }
 
 /* Section Card  */
-
-
-/* Section Brand */
-/* .section-title {
-    font-weight: 700;
-} */
-
-/* Section Brand */
-
 
 .title-left-border-draw {
     padding: 0rem 0 0rem 0.5rem;

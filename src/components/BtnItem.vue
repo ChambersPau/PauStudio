@@ -24,8 +24,6 @@ const emits = defineEmits(['btnClick']);
 <style scoped>
 .btn-non-active {
     background-color: var(--main-word-color);
-    /* border-color: var(--sub-color);
-    border-style: solid; */
     color: var(--sub-color);
     font-weight: 400;
 }

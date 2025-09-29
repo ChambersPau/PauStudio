@@ -39,8 +39,6 @@ img {
     gap: 0.5rem;
     flex-direction: column;
     justify-content: center;
-    /* 水平置中 */
     align-items: center;
-    /* 垂直置中 */
 }
 </style>

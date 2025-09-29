@@ -5,7 +5,6 @@ import CategoryImgCard from '../components/CategoryImgCard.vue'
 import ToTop from '../components/ToTop.vue'
 import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue'
-// import { Categories } from '../assets/globalData'
 import { useVideoStore } from '../stores/video'
 
 const videoStore = useVideoStore()
@@ -83,12 +82,7 @@ onMounted(() => {
                         <div class="card-item-image-wrapper card-item-imgae-wrapper-border-radius">
                             <img class="card-image card-item-imgae-wrapper-border-radius"
                                 :src="`https://i.ytimg.com/vi/${product.videoId}/maxresdefault.jpg`" alt="Image">
-                            <!-- <div class="card-item-image-wrapper-overlay ">
-                                <span><i class="bi bi-play-circle"></i> Play Video</span>
-                            </div> -->
                         </div>
-
-                        <!-- <p class="pt-2 card-name">{{ product }}</p> -->
                     </RouterLink>
                 </div>
             </div>
@@ -101,8 +95,6 @@ onMounted(() => {
                     <div class="card-item-image-wrapper">
                         <CategoryImgCard :name-ch="category.nameCh" :name-en="category.nameEn" :type="category.type" />
                     </div>
-                    <!-- <p class="pt-2 card-name">{{ category.nameEn }}</p>
-                    <p class="pt-1 card-desc">{{ category.desc }}</p> -->
                 </div>
             </div>
         </section>
@@ -125,7 +117,6 @@ onMounted(() => {
 }
 
 .card-item-wrapper-category {
-    /* padding: 1rem; */
     overflow: hidden;
 }
 

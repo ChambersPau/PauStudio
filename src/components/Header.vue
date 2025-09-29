@@ -37,16 +37,18 @@ function togglerClose() {
                 </RouterLink>
             </div>
             <nav class="navbar p-sm-2">
-                <button @click="togglerOpen" v-show="isShowToggler" class="navbar-toggler-open d-sm-none"
+                <!--漢堡按鈕-->
+                <!-- <button @click="togglerOpen" v-show="isShowToggler" class="navbar-toggler-open d-sm-none"
                     type="button">☰</button>
                 <button @click="togglerClose" v-show="!isShowToggler" :class="{
                     'navbar-toggler-close': true,
                     'd-none': isShowToggler,
                     'd-sm-none': true
-                }" type="button">X</button>
-
-                <div :class="['nav-links d-flex d-sm-flex flex-column align-items-end flex-sm-row gap-3 gap-sm-4', {
-                    'd-none': isShowToggler,
+                }" type="button">X</button> -->
+                <!--漢堡按鈕 樣式-->
+                <!-- flex-column flex-sm-row gap-3-->
+                <div :class="['nav-links d-flex flex-row align-items-end gap-3 gap-sm-4', {
+                    // 'd-none': isShowToggler,
                 }]">
                     <RouterLink @click="togglerClose" to="/">HOME</RouterLink>
                     <RouterLink @click="() => { togglerClose(); }" to="/category">VIDEO</RouterLink>
@@ -95,7 +97,13 @@ function togglerClose() {
     }
 
     .overlay-header {
-        background-color: transparent;
+        /* background-color: transparent; */
+
+        /* 手機版本 nav 置頂*/
+        position: relative;
+        top: 0;
+        left: 0;
+        /* 手機版本 nav 置頂*/
     }
 
     /* 漢堡標示 */
@@ -123,7 +131,7 @@ function togglerClose() {
     }
 
     /* 手機版本 nav */
-    .nav-links {
+    /* .nav-links {
         position: fixed;
         right: 0rem;
         top: 0rem;
@@ -156,16 +164,12 @@ function togglerClose() {
         height: 2px;
         background-color: var(--sub-color);
         transform: scaleX(0);
-        /* 初始為 0 寬度 */
         transform-origin: right;
-        /* 從右邊開始展開 */
         transition: transform 0.3s ease;
-        /* 動畫效果 */
     }
 
     .nav-links a:hover::after {
         transform: scaleX(1);
-        /* 滑鼠移入時展開到底線全長 */
-    }
+    } */
 }
 </style>
