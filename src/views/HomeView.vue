@@ -4,6 +4,7 @@ import IntroCard from '../components/IntroCard.vue'
 import FooterPart from '../components/Footer.vue'
 import ToTop from '../components/ToTop.vue'
 import BtnItem from '../components/BtnItem.vue'
+import IconCard from '../components/IconCard.vue';
 
 import { LogoSlider_First, LogoSlider_Second } from '../assets/globalData'
 import { useVideoStore } from '../stores/video'
@@ -116,7 +117,7 @@ onMounted(() => {
             <div class="cards-category d-flex justify-content-center align-items-center gap-2 mb-3">
                 <h3 class="fs-2 active">精選作品</h3>
                 <div class="d-flex justify-content-center align-items-center">
-                     <span class='fs-2' style="vertical-align: middle;">❘</span>
+                    <span class='fs-2' style="vertical-align: middle;">❘</span>
                 </div>
                 <RouterLink to="/category">
                     <h3 class="fs-2">分類作品</h3>
@@ -128,19 +129,32 @@ onMounted(() => {
                     <div v-for="topProd in topProds" :key="topProd" class="card-item">
                         <RouterLink
                             :to="{ path: '/product', query: { videoId: topProd.videoId, category: topProd.type } }">
-                            <img
-                                :class="['card-image',
+                            <img :class="['card-image',
                                 {
                                     'custom-position-right': topProd.position === 'right',
                                     'custom-position-left': topProd.position === 'left'
-                                }]" 
-                                :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
+                                }]" :src="`https://i.ytimg.com/vi/${topProd.videoId}/maxresdefault.jpg`" alt="Image">
                         </RouterLink>
                     </div>
                 </div>
                 <button @click="ClickRightBtn" v-show="isShowRightBtn" class="carousel-btn right">&#10095;</button>
             </div>
         </section>
+
+        <section class="brands-section my-8 fade-in-effect">
+            <div class="d-flex justify-content-center align-items-center mb-4">
+                <IntroCard :title="'服務項目'" />
+            </div>
+            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-4 gap-sm-5 mx-3 mx-sm-5">
+                <IconCard :head="'前期製作'" :img-name="'icon1'"
+                    :contents="['影音類型需求確認，規劃分鏡腳本與文案，', '討論預算配置及用途，確立製作方向。']" />
+                <IconCard :head="'拍攝執行'" :img-name="'icon2'"
+                    :contents="['高規格專業器材拍攝，依據規劃高效率執行，', '溝通影音製作細節，確保影音品質到位。']" />
+                <IconCard :head="'後期製作'" :img-name="'icon3'"
+                    :contents="['包含剪輯、調色、動畫設計與音效及配樂，', '為您打造專屬的影音，呈現最佳效果。']" />
+            </div>
+        </section>
+
         <section class="brands-section my-5 fade-in-effect">
             <div class="d-flex justify-content-center align-items-center mb-4">
                 <IntroCard :title="'合作品牌'" />
@@ -153,7 +167,7 @@ onMounted(() => {
             <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
                 <div class="logo-wrapper d-none d-sm-block">
                     <RouterLink to="/">
-                        <img src="../assets/PAU STUDIO LOGO_white.png">
+                        <img src="../assets/PAU STUDIO LOGO_white_no_gap.png">
                     </RouterLink>
                 </div>
                 <!-- <div class="contact-line"></div> -->
