@@ -164,14 +164,13 @@ onMounted(() => {
         </section>
 
         <section class="contact-section my-8">
-            <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+            <div class="d-flex gap-3 gap-sm-4 flex-column flex-sm-row justify-content-center align-items-center"> 
                 <div class="logo-wrapper d-none d-sm-block">
                     <RouterLink to="/">
                         <img src="../assets/PAU STUDIO LOGO_white_no_gap.png">
                     </RouterLink>
                 </div>
-                <!-- <div class="contact-line"></div> -->
-                <div class="contac-box ps-3 d-flex flex-column justify-content-center align-items-start gap-2">
+                <div class="contac-box d-flex flex-column justify-content-center align-items-start gap-2 ps-3 ps-sm-4">
                     <p>各類影音統籌</p>
                     <p>多媒體專業團隊</p>
                     <p>客製化影音服務</p>
